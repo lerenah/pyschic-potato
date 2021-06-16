@@ -10,7 +10,7 @@ script:
   - docker run -e CI=true lerenah/psychic-potato npm run test -- --coverage
 
 deploy:
-  provider: elasticbeanstalk
+  provider: "elasticbeanstalk"
   region: "us-west-2"
   app: "psychic-potato"
   env: "Pyschicpotato-env"
