@@ -8,3 +8,15 @@ before_install:
 
 script:
   - docker run -e CI=true lerenah/psychic-potato npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "psychic-potato"
+  env: "Pyschicpotato-env"
+  bucket_name: "elasticbeanstalk-us-west-2-559153477514?region=us-west-2"
+  bucket_path: "psychic-potato"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
